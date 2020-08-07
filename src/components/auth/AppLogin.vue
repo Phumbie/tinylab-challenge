@@ -172,11 +172,11 @@ export default {
 };
 </script>
 <style scoped>
-* {
+/* * {
   --primary-color: #013c61;
   --font-color: #6a7e8a;
   --green: #2bda53;
-}
+} */
 body {
   padding: 0;
   margin: 0;
@@ -220,7 +220,8 @@ img {
   background: #ffffff;
   box-shadow: 0px 20px 50px #eaeee9;
   border-radius: 5px;
-  padding: 2rem;
+  padding: 3rem;
+  margin-top: 2rem;
 }
 input {
   border: none;
