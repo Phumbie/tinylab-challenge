@@ -7,7 +7,7 @@
 <style>
 body {
   margin: 0;
-  padding: o;
+  padding: 0;
 }
 * {
   --primary-color: #013c61;
