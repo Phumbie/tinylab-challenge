@@ -19,13 +19,7 @@
                 <br />
                 <div class="form-field">
                   <input type="text" name id="firstName" />
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="18"
-                    viewBox="0 0 16 18"
-                    fill="none"
-                  >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 16 18" fill="none">
                     <path
                       d="M15 16.75V15C15 13.067 13.433 11.5 11.5 11.5H4.5C2.567 11.5 1 13.067 1 15V16.75"
                       stroke="#013C61"
@@ -51,13 +45,7 @@
                 <br />
                 <div class="form-field">
                   <input type="text" name id="lastName" />
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="18"
-                    viewBox="0 0 16 18"
-                    fill="none"
-                  >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 16 18" fill="none">
                     <path
                       d="M15 16.75V15C15 13.067 13.433 11.5 11.5 11.5H4.5C2.567 11.5 1 13.067 1 15V16.75"
                       stroke="#013C61"
@@ -84,13 +72,7 @@
               <br />
               <div class="form-field">
                 <input type="email" name id="mail" />
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="17"
-                  height="17"
-                  viewBox="0 0 17 17"
-                  fill="none"
-                >
+                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
                   <path
                     fill-rule="evenodd"
                     clip-rule="evenodd"
@@ -116,13 +98,7 @@
               <br />
               <div class="form-field">
                 <input type="password" name id="password" />
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="19"
-                  height="15"
-                  viewBox="0 0 19 15"
-                  fill="none"
-                >
+                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="15" viewBox="0 0 19 15" fill="none">
                   <path
                     fill-rule="evenodd"
                     clip-rule="evenodd"
@@ -145,9 +121,11 @@
               </div>
               <hr />
             </div>
-            <div class="button">
-              <input class="submit" type="button" value="Continue" />
-            </div>
+            <router-link to="/home">
+              <div class="button">
+                <input class="submit" type="button" value="Continue" />
+              </div>
+            </router-link>
           </div>
         </div>
         <div class="footer">
@@ -258,6 +236,7 @@ hr {
   color: white;
   box-shadow: 0px 7px 15px rgba(43, 218, 83, 0.2);
   border-radius: 3px;
+  cursor: pointer;
 }
 .footer {
   position: absolute;

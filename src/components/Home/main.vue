@@ -1,10 +1,36 @@
 <template>
   <div class="main">
-    <div class="container">
+    <div class="container-body">
       <div class="employee">
         <h2 class="name">Employee</h2>
-        <button class="add">Add New</button>
+        <button class="add" data-toggle="modal" data-target="#exampleModal">Add New</button>
       </div>
+      <!-- <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div> -->
       <div class="employee details">
         <h4 class="name">Josh Bakery Ventures</h4>
         <div class="address">
@@ -58,7 +84,7 @@
               <p>Staff</p>
             </div>
             <div>
-              <p>
+              <p @click="deleteEmployee(employee.id)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="21" viewBox="0 0 18 21" fill="none">
                   <path
                     d="M1 5.55555H2.77778H17"
@@ -106,6 +132,7 @@ export default {
         phone: "08123444894",
         role: "Staff",
       },
+      employee: [],
     };
   },
   mounted() {
@@ -113,9 +140,39 @@ export default {
   },
   methods: {
     addEmployee() {
-      console.log("hi");
+      //   console.log("hi");
       this.$http
         .post(`https://crudcrud.com/api/d404675c998a47a481c3e270447933cc`, this.employee)
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    },
+    deleteEmployee(id) {
+      this.$http
+        .delete(`https://crudcrud.com/api/d404675c998a47a481c3e270447933cc/${id}`)
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    },
+    getEmployee() {
+      this.$http
+        .get(`https://crudcrud.com/api/d404675c998a47a481c3e270447933cc`)
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    },
+    editEmployee(id) {
+      this.$http
+        .put(`https://crudcrud.com/api/d404675c998a47a481c3e270447933cc/${id}`, this.employee)
         .then((response) => {
           console.log(response);
         })
@@ -131,7 +188,7 @@ export default {
   background-color: #f6f8f8;
   height: 100%;
 }
-.container {
+.container-body {
   width: 90%;
   margin: auto;
 }
@@ -203,7 +260,7 @@ export default {
   .table {
     width: 40rem;
   }
-  .container {
+  .container-body {
     overflow-y: auto;
   }
   .table-surround {
