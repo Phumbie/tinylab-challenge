@@ -59,13 +59,7 @@
             </div>
             <div>
               <p>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="18"
-                  height="21"
-                  viewBox="0 0 18 21"
-                  fill="none"
-                >
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="21" viewBox="0 0 18 21" fill="none">
                   <path
                     d="M1 5.55555H2.77778H17"
                     stroke="#6A7E8A"
@@ -100,6 +94,38 @@
     </div>
   </div>
 </template>
+<script>
+import axios from "axios";
+export default {
+  data() {
+    return {
+      employee: {
+        first_name: "Busayo",
+        last_name: "Dawodu",
+        email: "johndoe@yahoo.com",
+        phone: "08123444894",
+        role: "Staff",
+      },
+    };
+  },
+  mounted() {
+    this.addEmployee();
+  },
+  methods: {
+    addEmployee() {
+      console.log("hi");
+      this.$http
+        .post(`https://crudcrud.com/api/d404675c998a47a481c3e270447933cc`, this.employee)
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    },
+  },
+};
+</script>
 <style scoped>
 .main {
   background-color: #f6f8f8;
@@ -182,6 +208,9 @@
   }
   .table-surround {
     overflow-y: auto;
+  }
+  .table-head div > p {
+    font-size: 1rem;
   }
 }
 </style>
