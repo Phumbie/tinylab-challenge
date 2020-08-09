@@ -3,34 +3,36 @@
     <div class="container-body">
       <div class="employee">
         <h2 class="name">Employee</h2>
-        <button class="add" data-toggle="modal" data-target="#exampleModal">Add New</button>
+        <button class="add" @click="dialogVisible = true">Add New</button>
       </div>
-      <!-- <div
-        class="modal fade"
-        id="exampleModal"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              ...
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
-        </div>
-      </div> -->
+      <el-dialog title="Add Employee" :visible.sync="dialogVisible" width="90%" :before-close="handleClose">
+        <el-form>
+          <el-form-item>
+            <el-input placeholder="First Name" v-model="employee.first_name"></el-input>
+          </el-form-item>
+          <el-form-item>
+            <el-input placeholder="Last Name" v-model="employee.last_name"></el-input>
+          </el-form-item>
+          <el-form-item>
+            <el-input placeholder="Email" v-model="input" type="employee.email"></el-input>
+          </el-form-item>
+          <el-form-item>
+            <el-input placeholder="Phone" v-model="employee.phone"></el-input>
+          </el-form-item>
+          <el-form-item>
+            <el-select v-model="employee.role" placeholder="Role">
+              <el-option label="Staff" value="staff"> </el-option>
+              <el-option label="Admin" value="admin"> </el-option>
+            </el-select>
+          </el-form-item>
+        </el-form>
+
+        <span slot="footer" class="dialog-footer">
+          <el-button @click="dialogVisible = false">Cancel</el-button>
+          <el-button type="primary" @click="addEmployee">Add</el-button>
+        </span>
+      </el-dialog>
+
       <div class="employee details">
         <h4 class="name">Josh Bakery Ventures</h4>
         <div class="address">
@@ -126,13 +128,14 @@ export default {
   data() {
     return {
       employee: {
-        first_name: "Busayo",
-        last_name: "Dawodu",
-        email: "johndoe@yahoo.com",
-        phone: "08123444894",
-        role: "Staff",
+        first_name: "",
+        last_name: "",
+        email: "",
+        phone: "",
+        role: "",
       },
       employee: [],
+      dialogVisible: false,
     };
   },
   mounted() {
@@ -140,7 +143,7 @@ export default {
   },
   methods: {
     addEmployee() {
-      //   console.log("hi");
+      this.dialogVisible = false;
       this.$http
         .post(`https://crudcrud.com/api/d404675c998a47a481c3e270447933cc`, this.employee)
         .then((response) => {

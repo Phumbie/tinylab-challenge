@@ -4,8 +4,10 @@ import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
 import axios from "axios";
-// import "bootstrap";
-// import "bootstrap/dist/css/bootstrap.min.css";
+import ElementUI from "element-ui";
+import "element-ui/lib/theme-chalk/index.css";
+
+Vue.use(ElementUI);
 
 axios.defaults.baseURL = "https://crudcrud.com/api/d404675c998a47a481c3e270447933cc";
 
