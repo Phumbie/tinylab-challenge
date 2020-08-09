@@ -14,4 +14,9 @@ body {
   --font-color: #6a7e8a;
   --green: #2bda53;
 }
+html {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+}
 </style>
